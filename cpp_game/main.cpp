@@ -1,9 +1,16 @@
-#include <iostream>
+#include <QApplication>
+#include "cube_test.h"
 
 using namespace std;
 
-int main()
+int main(int argc, char *argv[])
 {
-    cout << "Hello World!" << endl;
-    return 0;
+    QApplication app(argc, argv);
+
+    cube_test cube;
+    cube.resize(400, 400);
+    cube.show();
+
+
+    return app.exec();
 }
