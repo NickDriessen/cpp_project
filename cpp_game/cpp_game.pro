@@ -4,9 +4,11 @@ CONFIG -= app_bundle
 
 SOURCES += \
         cube_test.cpp \
+        entity.cpp \
         main.cpp
 
 HEADERS += \
-    cube_test.h
+    cube_test.h \
+    entity.h
 
 QT += widgets
