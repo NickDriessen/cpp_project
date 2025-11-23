@@ -19,7 +19,7 @@ void cube_test::keyPressEvent(QKeyEvent *event)
     case Qt::Key_Down:  y += speed;
         break;
     }
-    update();   //repaint the widget (im guessing update the code so it moves?)
+    update();   //repaint the widget
 }
 
 void cube_test::paintEvent(QPaintEvent *event)

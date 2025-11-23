@@ -1,16 +1,13 @@
 #include <QApplication>
-#include "cube_test.h"
-
-using namespace std;
+#include "GameWidget.h"
 
 int main(int argc, char *argv[])
 {
-    QApplication app(argc, argv);
+    QApplication a(argc, argv);
 
-    cube_test cube;
-    cube.resize(500, 500);
-    cube.show();
+    GameWidget game;
+    game.resize(400, 400);
+    game.show();
 
-
-    return app.exec();
+    return a.exec();
 }
