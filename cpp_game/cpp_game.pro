@@ -4,7 +4,7 @@ CONFIG -= app_bundle
 
 SOURCES += \
         #cube_test.cpp \
-        entity.cpp \
+        #entity.cpp \
         gamewidget.cpp \
         main.cpp \
         player.cpp

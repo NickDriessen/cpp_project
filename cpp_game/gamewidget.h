@@ -12,6 +12,6 @@ protected:
     void paintEvent(QPaintEvent*) override;
     void keyPressEvent(QKeyEvent* event) override;
 
-private:
+private: //6. Object Composition
     Player* player;
 };

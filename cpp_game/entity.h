@@ -3,7 +3,7 @@
 
 #include <QPainter>
 
-class Entity
+class Entity //1. Correct Class //7. Base Class
 {
 public:
     // Constructor
@@ -12,7 +12,7 @@ public:
 
     virtual ~Entity() = default;
 
-    // Pure virtual functions (must be implemented by child classes)
+    // 2. Abstraction // 5. Polymorphism //8. Abstract Base Class //9. Virtual Functions
     virtual void update() = 0;
     virtual void draw(QPainter& painter) = 0;
 
@@ -26,7 +26,7 @@ public:
     void setX(int newX) { x = newX; }
     void setY(int newY) { y = newY; }
 
-protected:
+protected: //3. Encapsulation
     int x;
     int y;
     int width;
