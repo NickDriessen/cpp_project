@@ -1,9 +1,7 @@
-#ifndef ENTITY_H
-#define ENTITY_H
-
+#pragma once
 #include <QPainter>
 
-class Entity //1. Correct Class //7. Base Class
+class Entity
 {
 public:
     // Constructor
@@ -12,7 +10,7 @@ public:
 
     virtual ~Entity() = default;
 
-    // 2. Abstraction // 5. Polymorphism //8. Abstract Base Class //9. Virtual Functions
+
     virtual void update() = 0;
     virtual void draw(QPainter& painter) = 0;
 
@@ -33,5 +31,3 @@ protected: //3. Encapsulation
     int height;
     int speed;
 };
-
-#endif // ENTITY_H

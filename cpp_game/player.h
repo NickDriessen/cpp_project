@@ -1,7 +1,7 @@
 #pragma once
 #include "Entity.h"
 
-class Player : public Entity //4. Inheritance
+class Player : public Entity
 {
 public:
     Player(int startX, int startY);
