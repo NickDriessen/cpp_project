@@ -1,6 +1,8 @@
 #pragma once
 #include <QWidget>
 #include "Player.h"
+#include "enemy.h"
+#include <vector>
 
 class GameWidget : public QWidget
 {
@@ -14,4 +16,5 @@ protected:
 
 private: //6. Object Composition
     Player* player;
+    std::vector<Entity*> entities;
 };

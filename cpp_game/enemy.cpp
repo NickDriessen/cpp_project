@@ -1,8 +1,18 @@
-#include "enemy.h"
+#include "Enemy.h"
 
-enemy::enemy() {}
-
-void enemy::moveDown
+Enemy::Enemy(int startX, int startY)
+    : Entity(startX, startY, 40, 40, 2)   // smaller speed
 {
-    y -= speed;
+}
+
+void Enemy::update()
+{
+    // Very simple: enemy moves downward
+    y += speed;
+}
+
+void Enemy::draw(QPainter& painter)
+{
+    painter.setBrush(Qt::red);
+    painter.drawRect(x, y, width, height);
 }

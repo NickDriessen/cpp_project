@@ -1,14 +1,11 @@
 #pragma once
 #include "Entity.h"
 
-class enemy : public Entity
+class Enemy : public Entity
 {
 public:
-    enemy(int startX, int startY);
+    Enemy(int startX, int startY);
 
-    void update() override;
-
-    void moveDown();
-    void moveLeft();
-    void moveRicht();
+    void update() override;                // enemy movement
+    void draw(QPainter& painter) override; // draw enemy
 };
