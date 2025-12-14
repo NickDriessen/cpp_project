@@ -24,7 +24,7 @@ public:
     void setX(int newX) { x = newX; }
     void setY(int newY) { y = newY; }
 
-protected: //3. Encapsulation
+protected:
     int x;
     int y;
     int width;

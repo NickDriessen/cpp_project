@@ -1,14 +1,26 @@
 #include "GameWidget.h"
 #include <QPainter>
 #include <QKeyEvent>
+#include <QTimer>
 
 GameWidget::GameWidget(QWidget* parent)
     : QWidget(parent)
 {
-    entities.push_back(new Player(100, 300));   // index 0 = player
+    player = new Player(100,300);
+    entities.push_back(player);                 // index 0 = player
     entities.push_back(new Enemy(100, 50));     // index 1 = enemy
 
     setFocusPolicy(Qt::StrongFocus); // needed for keyboard input
+
+    QTimer* timer = new QTimer(this);
+    connect(timer, &QTimer::timeout, this, [this]() {
+        for (Entity* e : entities)
+            e->update();   // polymorphism update
+
+        update();
+    });
+    timer->start(16); // ~60 FPS
+
 }
 
 void GameWidget::paintEvent(QPaintEvent*)

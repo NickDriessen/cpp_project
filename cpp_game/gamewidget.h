@@ -1,7 +1,7 @@
 #pragma once
 #include <QWidget>
 #include "Player.h"
-#include "enemy.h"
+#include "Enemy.h"
 #include <vector>
 
 class GameWidget : public QWidget
@@ -14,7 +14,7 @@ protected:
     void paintEvent(QPaintEvent*) override;
     void keyPressEvent(QKeyEvent* event) override;
 
-private: //6. Object Composition
+private:
     Player* player;
     std::vector<Entity*> entities;
 };
