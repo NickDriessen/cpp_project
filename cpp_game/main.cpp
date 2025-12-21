@@ -1,7 +1,7 @@
 #include <QApplication>
 #include "GameWidget.h"
 
-int main(int argc, char *argv[])
+int main(int argc, char *argv[]) //vraag 2: clean main
 {
     QApplication a(argc, argv);
 

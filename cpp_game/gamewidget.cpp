@@ -6,13 +6,13 @@
 GameWidget::GameWidget(QWidget* parent)
     : QWidget(parent)
 {
-    player = new Player(100,300);
+    player = new Player(100,300); //vraag 32: dynamic memory allocation
     entities.push_back(player);                 // index 0 = player
-    entities.push_back(new Enemy(100, 50));     // index 1 = enemy
+    entities.push_back(new Enemy(100, 50));     // index 1 = enemy //vraag 32: dynamic memory allocation
 
     setFocusPolicy(Qt::StrongFocus); // needed for keyboard input
 
-    QTimer* timer = new QTimer(this);
+    QTimer* timer = new QTimer(this);               //vraag 40: useful lambda function
     connect(timer, &QTimer::timeout, this, [this]()
     {
         for (Entity* e : entities)
@@ -44,7 +44,7 @@ GameWidget::GameWidget(QWidget* parent)
 
             if (!e->isAlive())
             {
-                delete e;
+                delete e; //vraag 33: dynamic memory removing
                 it = entities.erase(it);
             }
             else
@@ -89,7 +89,7 @@ void GameWidget::keyPressEvent(QKeyEvent* event)
     update(); // redraw
 }
 
-bool GameWidget::checkCollision(const Entity& a, const Entity& b) const
+bool GameWidget::checkCollision(const Entity& a, const Entity& b) const //vraag
 {
     return a.getX() < b.getX() + b.getWidth() &&
            a.getX() + a.getWidth() > b.getX() &&

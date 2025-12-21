@@ -1,7 +1,7 @@
 #include "Enemy.h"
 
 Enemy::Enemy(int startX, int startY)
-    : Entity(startX, startY, 40, 40, 2)   // smaller speed
+    : Entity(startX, startY, 40, 40, 2)   // vraag 17: constructor forwarding (vind)
 {
 }
 

@@ -1,11 +1,11 @@
 #include "Bullet.h"
 
 Bullet::Bullet()
-    : Entity(0, 0, 6, 12, 8), alive(true)
+    : Entity(0, 0, 6, 12, 8), alive(true) //vraag 16: member initialization in constructors
 {
 }
 
-Bullet::Bullet(int startX, int startY, int speed)
+Bullet::Bullet(int startX, int startY, int speed)       // vraag 17: constructor forwarding (vind)
     : Entity(startX, startY, 6, 12, speed), alive(true)
 {
 }
