@@ -13,9 +13,25 @@ GameWidget::GameWidget(QWidget* parent)
     setFocusPolicy(Qt::StrongFocus); // needed for keyboard input
 
     QTimer* timer = new QTimer(this);
-    connect(timer, &QTimer::timeout, this, [this]() {
+    connect(timer, &QTimer::timeout, this, [this]()
+    {
         for (Entity* e : entities)
             e->update();   // polymorphism update
+
+        for (auto it = entities.begin(); it != entities.end(); )
+        {
+            Bullet* bullet = dynamic_cast<Bullet*>(*it);
+
+            if (bullet && !bullet->isAlive())
+            {
+                delete bullet;                // memory free
+                it = entities.erase(it);      // remove pointer from vector
+            }
+            else
+            {
+                ++it;
+            }
+        }
 
         update();
     });
@@ -40,6 +56,13 @@ void GameWidget::keyPressEvent(QKeyEvent* event)
 
     case Qt::Key_Right:
         player->moveRight();
+        break;
+
+    case Qt::Key_Z:
+        int BulletX = player->getX() + player->getWidth() / 2;
+        int BulletY = player->getY();
+
+        entities.push_back(new Bullet(BulletX, BulletY, 10));
         break;
     }
 

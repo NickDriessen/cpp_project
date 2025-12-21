@@ -2,6 +2,7 @@
 #include <QWidget>
 #include "Player.h"
 #include "Enemy.h"
+#include "Bullet.h"
 #include <vector>
 
 class GameWidget : public QWidget
