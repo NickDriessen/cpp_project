@@ -11,12 +11,11 @@ public:
     Bullet(const Bullet& other);                  // copy constructor
     ~Bullet();                                    // destructor
 
-
-
     void update() override;                // Bullet movement
     void draw(QPainter& painter) override; // draw Bullet
 
-    bool isAlive() const;
+    void kill();
+    bool isAlive() const override;
 
 private:
     bool alive;

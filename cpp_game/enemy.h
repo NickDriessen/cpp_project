@@ -8,4 +8,11 @@ public:
 
     void update() override;                // enemy movement
     void draw(QPainter& painter) override; // draw enemy
+
+    bool isAlive() const override;
+    void kill();
+
+private:
+    bool alive = true;
+
 };

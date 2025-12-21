@@ -18,22 +18,42 @@ GameWidget::GameWidget(QWidget* parent)
         for (Entity* e : entities)
             e->update();   // polymorphism update
 
+        for (Entity* a : entities)
+        {
+            Bullet* bullet = dynamic_cast<Bullet*>(a);
+            if (!bullet || !bullet->isAlive())
+                continue;
+
+            for (Entity* b : entities)
+            {
+                Enemy* enemy = dynamic_cast<Enemy*>(b);
+                if (!enemy || !enemy->isAlive())
+                    continue;
+
+                if (checkCollision(*bullet, *enemy))
+                {
+                    bullet->kill();
+                    enemy->kill();
+                }
+            }
+        }
+
         for (auto it = entities.begin(); it != entities.end(); )
         {
-            Bullet* bullet = dynamic_cast<Bullet*>(*it);
+            Entity* e = *it;
 
-            if (bullet && !bullet->isAlive())
+            if (!e->isAlive())
             {
-                delete bullet;                // memory free
-                it = entities.erase(it);      // remove pointer from vector
+                delete e;
+                it = entities.erase(it);
             }
             else
             {
                 ++it;
             }
         }
-
         update();
+
     });
     timer->start(16); // ~60 FPS
 
@@ -67,4 +87,12 @@ void GameWidget::keyPressEvent(QKeyEvent* event)
     }
 
     update(); // redraw
+}
+
+bool GameWidget::checkCollision(const Entity& a, const Entity& b) const
+{
+    return a.getX() < b.getX() + b.getWidth() &&
+           a.getX() + a.getWidth() > b.getX() &&
+           a.getY() < b.getY() + b.getHeight() &&
+           a.getY() + a.getHeight() > b.getY();
 }

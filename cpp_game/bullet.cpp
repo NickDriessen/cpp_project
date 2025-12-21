@@ -39,3 +39,8 @@ bool Bullet::isAlive() const
 {
     return alive;
 }
+
+void Bullet::kill()
+{
+    alive = false;
+}

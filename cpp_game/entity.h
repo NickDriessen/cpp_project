@@ -14,6 +14,8 @@ public:
     virtual void update() = 0;
     virtual void draw(QPainter& painter) = 0;
 
+    virtual bool isAlive() const { return true; }
+
     // Getters
     int getX() const { return x; }
     int getY() const { return y; }

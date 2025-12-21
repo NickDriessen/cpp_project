@@ -18,4 +18,5 @@ protected:
 private:
     Player* player;
     std::vector<Entity*> entities;
+    bool checkCollision(const Entity& a, const Entity& b) const;
 };
